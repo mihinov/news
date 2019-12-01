@@ -79,7 +79,7 @@ CONTENT
 
 ****************/
 
-.content {
+main.content {
 	margin-top: 110px;
 	margin-bottom: 110px;
 	padding: 0 10px;
@@ -344,6 +344,72 @@ CALENDAR
 
 ****************/
 
+.calendar {
+	max-width: 500px;
+}
+
+.calendar__top {
+	position: relative;
+}
+
+.calendar__date {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	align-items: center;
+}
+
+.calendar__month {
+	margin-right: 5px;
+	display: block;
+}
+
+.month__wrapper {
+	background-color: white;
+	color: black;
+	font-weight: 600;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 80%;
+	right: 45%;
+	-webkit-box-shadow: 0px 0px 16px 0px black;
+	-moz-box-shadow: 0px 0px 16px 0px black;
+	box-shadow: 0px 0px 16px 0px black;
+	border: 1px solid black;
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity .2s ease-in-out,
+				visibility .2s ease-in-out;
+}
+
+.month__wrapper.active {
+	visibility: visible;
+	opacity: 1;
+}
+
+.month__wrapper .month {
+	padding: 5px 10px 0 10px;
+	-webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.month__wrapper .month:last-child {
+	padding-bottom: 5px;
+}
+
+.month__wrapper .month:hover {
+	color: white;
+	background-color: var(--gray);
+}
+
 .calendar__top {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -354,17 +420,17 @@ CALENDAR
 	align-items: center;
 	color: white;
 	background-color: var(--gray);
-	padding: 10px 10px;
 }
 
 .calendar__right, .calendar__left {
 	font-size: 24px;
-	margin-top: -7px;
 	line-height: 1;
 	cursor: pointer;
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    padding: 12px;
+    margin-top: -4px;
 }
 
 .day__week {
@@ -453,10 +519,6 @@ div.today {
 		width: auto;
 	}
 }
-
-/* @media (max-width: 430px) {
-	
-} */
 
 @media (max-width: 700px) {
 	.post__media{

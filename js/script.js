@@ -7,39 +7,83 @@ let calendar__month = calendar.querySelector('.calendar__month');
 let calendar__year = calendar.querySelector('.calendar__year');
 let calendar__left = calendar.querySelector('.calendar__left');
 let calendar__right = calendar.querySelector('.calendar__right');
+let months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 let calendarNumber = 0;
-
-calendar__left.addEventListener('click', () =>{
-	calendarNumber--;
-	clearDays();
-	logicCalendar(calendarNumber);
-});
-
-calendar__right.addEventListener('click', () =>{
-	calendarNumber++;
-	clearDays();
-	logicCalendar(calendarNumber);
-});
+let month__wrapper = calendar.querySelector('.month__wrapper');
 
 let days = [];
 for (let i = 0; i < weeks.length; i++) {
 	for (let j = 0; j < weeks[i].children.length; j++) {
-		days.push(weeks[i].children[j]);
+		days.push(weeks[i].children[j]);	
 	}
 }
-let months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
 let thisMonth = function (month) {
 	return months[month];
 };
 
-function logicCalendar(calendarNum) {
-	let thisDate = new Date();
-	if (calendarNum !== undefined) {
-		thisDate.setMonth(thisDate.getMonth() + calendarNum);
+let elem = document.createElement('span');
+let startDate = new Date();
+
+month__wrapper.addEventListener('click', (event) => {
+	let text = event.target.lastChild.data;
+	for (let i = 0; i < months.length; i++) {
+		if (text === months[i]) {
+			let year = (calendarNumber + startDate.getMonth())/12;
+			year = Math.floor(year)*12;
+			calendarNumber = i - startDate.getMonth() + year;
+			clearDays();
+			logicCalendar();
+		}
 	}
-	let thisYear = thisDate.getFullYear();
+});
+
+calendar__left.addEventListener('click', () => {
+	calendarNumber--;
+	clearDays();
+	logicCalendar();
+});
+
+calendar__right.addEventListener('click', () => {
+	calendarNumber++;
+	clearDays();
+	logicCalendar('true');
+});
+
+calendar__month.addEventListener('mouseover', () => {
+	month__wrapper.classList.add('active');
+	month__wrapper.style.cursor = 'pointer';
+});
+
+calendar__month.addEventListener('mouseout', () => {
+	month__wrapper.classList.remove('active');
+});
+
+month__wrapper.addEventListener('click', () => {
+	month__wrapper.classList.remove('active');
+	month__wrapper.style.cursor = 'default';
+});
+
+
+
+
+
+function logicCalendar(bool) {
+	let thisDate = new Date();
+	if (startDate.getMonth() !== thisDate.getMonth()) {
+		if (bool === 'true') {
+			calendarNumber--;
+		}
+	}
 	let thisDay = thisDate.getDate();
 	thisDate.setDate(1);
+	let sum = thisDate.getMonth() + calendarNumber;
+	let year = Math.floor(sum / 12);
+	sum %= 12;
+	if (sum < 0) {
+		sum = 12 + sum;
+	}
+	thisDate.setMonth(sum);
+	let thisYear = thisDate.getFullYear() + year;
 	let dayWeek = thisDate.getDay();
 	if (dayWeek == 0) {
 		dayWeek = 6;
@@ -54,10 +98,11 @@ function logicCalendar(calendarNum) {
 		daysClone[i].innerHTML = day;
 		day++;
 	}
-	if (calendarNum === undefined || calendarNum === 0) {
+	if (calendarNumber === 0) {
 		daysClone[thisDay-1].classList.add('today');
 	}
-	calendar__month.innerHTML = thisMonth(thisDate.getMonth());
+	elem.innerHTML = thisMonth(sum);
+	calendar__month.prepend(elem);
 	calendar__year.innerHTML = thisYear;
 }
 
