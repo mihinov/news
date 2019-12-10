@@ -2,8 +2,3 @@
 <br>
 Обратите внимание на календарик внизу страницы! Он на JS<br><br>
 <img src="https://raw.githubusercontent.com/mihinov/news/master/readme.png">
-![image](https://github.com/mihinov/news/master/readme.png)<br>
-![image](https://github.com/mihinov/news/blob/master/readme.png)<br>
-![image](https://raw.githubusercontent.com/mihinov/news/master/readme.png)<br>
-![image](https://github.com/mihinov/news/gh-pages/readme.png)<br>
-
