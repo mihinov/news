@@ -17,12 +17,25 @@ for (let i = 0; i < weeks.length; i++) {
 		days.push(weeks[i].children[j]);	
 	}
 }
+
 let thisMonth = function (month) {
 	return months[month];
 };
 
 let elem = document.createElement('span');
 let startDate = new Date();
+
+let activeMonth;
+for (let i = 0; i < months.length; i++) {
+	let block__month = document.createElement('div');
+	block__month.classList.add('month');
+	block__month.innerHTML = months[i];
+	if (startDate.getMonth() === i) {
+		block__month.classList.add('active');
+		activeMonth = block__month;
+	}
+	month__wrapper.append(block__month);
+}
 
 month__wrapper.addEventListener('click', (event) => {
 	let text = event.target.lastChild.data;
@@ -104,6 +117,11 @@ function logicCalendar(bool) {
 	elem.innerHTML = thisMonth(sum);
 	calendar__month.prepend(elem);
 	calendar__year.innerHTML = thisYear;
+	if (startDate.getFullYear() !== thisYear) {
+		activeMonth.classList.remove('active');
+	} else {
+		activeMonth.classList.add('active');
+	}
 }
 
 function clearDays() {
