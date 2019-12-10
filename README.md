@@ -2,4 +2,5 @@
 <br>
 Обратите внимание на календарик внизу страницы! Он на JS<br><br>
 ![image](https://github.com/mihinov/news/blob/master/readme.png)
+![image](https://raw.githubusercontent.com/mihinov/news/master/readme.png)
 
