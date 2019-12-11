@@ -43,6 +43,124 @@ img {
 	padding: 0 10px;
 }
 
+html, body, .container {
+	height: 100%;
+}
+
+/*************** 
+
+HEADER
+
+****************/
+
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	border-bottom: 1px solid #cbd5e0;
+	width: 100%;
+	z-index: 1;
+	background-color: white;
+	padding: 10px 0;
+	transition: transform .3s ease-in-out;
+}
+
+.header.off {
+	transform: translateY(-100%);
+}
+
+.header__container {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-start;
+	transition: margin-left 1s ease-in-out;
+}
+
+.header__logo {
+	font-size: 22px;
+	white-space: nowrap;
+	margin-left: 20px;
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	transition: max-width .5s ease-in-out;
+}
+
+.header__container.active .header__logo {
+	max-width: 0%;
+}
+
+/*************** 
+
+HEADER__BURGER
+
+****************/
+
+.header__burger {
+	background-color: black;
+	border-radius: 2px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 10px 24.5px;
+	cursor: pointer;
+	overflow: hidden;
+	max-width: 45px;
+	min-height: 36px;
+	transform: translateZ(0);
+	transition: margin-left .7s ease-in-out,
+				background-color .5s ease-out;
+}
+
+.line__burger {
+	position: absolute;
+	width: 20px;
+	height: 2px;
+	background-color: white;
+	transition: transform .5s ease-in-out,
+				background-color .5s ease-in-out;
+}
+
+.line__burger:first-child {
+  transform: translateY(9px);
+}
+
+.line__burger:last-child {
+  transform: translateY(-9px);
+}
+
+.header__container.active .line__burger:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.header__container.active .line__burger:nth-child(2),
+.header__container.active .line__burger:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.burger__menu {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(97, 93, 93, 0.95);
+	position: fixed;
+	top: 0;
+	left: 0;
+	transform: translateX(-100%);
+	transition: transform .7s ease-in-out;
+}
+
+.header__container.active .burger__menu {
+	transform: translateX(0%);
+}
+
 /*************** 
 
 INTRO
@@ -51,6 +169,7 @@ INTRO
 
 .intro {
 	font-family: 'Open Sans', sans-serif;
+	margin-top: 50px;
 }
 
 .posts__intro {
@@ -112,6 +231,37 @@ INTRO
 	padding: 0 15px;
 }
 
+.post__intro__date {
+	overflow-x: hidden;
+}
+
+.post__intro__section {
+	cursor: pointer;
+	position: relative;
+	display: inline-block;
+	overflow-x: hidden;
+}
+
+.post__intro__section::after {
+	width: 100%;
+	display: block;
+	content: '';
+	position: absolute;
+	height: 1px;
+	bottom: 0;
+	left: 0;
+	background-color: black;
+	transition: left 0.4s ease-in-out;
+}
+
+.post__intro.first .post__intro__section::after {
+	background-color: white;
+}
+
+.post__intro__section:hover::after {
+	left: 100%;
+}
+
 .post__intro.first .post__intro__img {
 	position: absolute;
 	height: 100%;
@@ -150,8 +300,17 @@ INTRO
 	font-size: 18px;
 }
 
+.post__intro__info {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+
 .post__intro.first .post__intro__info {
 	margin-bottom: 15px;
+	justify-content: center;
 }
 
 .post__intro__info span:not(:last-child)::after {
@@ -441,7 +600,9 @@ CALENDAR
 ****************/
 
 .calendar {
-	max-width: 500px;
+	margin: 60px auto;
+	max-width: 350px;
+	background-color: white;
 }
 
 .calendar__top {
@@ -600,7 +761,7 @@ FOOTER
 ****************/
 
 .footer {
-	padding: 40px 10px;
+	padding: 40px 0;
 	background-color: #333333;
 }
 
@@ -703,6 +864,9 @@ FOOTER
 
 
 
+
+
+
 @media (max-width: 1130px) {
 	.content__blocks {
 		-webkit-flex-wrap: wrap;
@@ -747,15 +911,19 @@ FOOTER
 	}
 
 	.post__intro {
-		max-width: calc(50% - 15px);
+		max-width: calc(50% - 10px);
 	}
 
 	.post__intro:nth-child(3n+3) {
-		margin-left: 30px;
+		margin-left: 0;
 	}
 
 	.post__intro:nth-child(2n+2) {
 		margin-left: 0;
+	}
+
+	.post__intro:nth-child(2n+3) {
+		margin-left: 20px;
 	}
 }
 
@@ -803,6 +971,10 @@ FOOTER
 
 	.post__intro, .post__intro:nth-child(3n+3) {
 		max-width: 100%;
+		margin-left: 0;
+	}
+
+	.post__intro:nth-child(2n+3) {
 		margin-left: 0;
 	}
 
