@@ -57,12 +57,19 @@ HEADER
 	position: fixed;
 	top: 0;
 	left: 0;
+	background-color: white;
 	border-bottom: 1px solid #cbd5e0;
 	width: 100%;
-	z-index: 2;
-	border-bottom: 0;
+	z-index: 3;
 	padding: 10px 0;
-	transition: transform .3s ease-in-out;
+	transition: background-color .7s step-end,
+				border-bottom .7s step-end;
+}
+
+.header.active {
+	transition-timing-function: step-start;
+	border-bottom: 0;
+	background-color: transparent;
 }
 
 .header.off {
@@ -101,6 +108,7 @@ HEADER__BURGER
 
 .header__burger {
 	position: relative;
+	z-index: 2;
 	background-color: black;
 	border-radius: 2px;
 	display: -webkit-flex;

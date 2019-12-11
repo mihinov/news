@@ -17,6 +17,7 @@ let header__container = document.querySelector('.header__container');
 let container = document.querySelector('.container');
 let header__logo = document.querySelector('.header__logo');
 
+
 function whatPhone() {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
@@ -47,6 +48,7 @@ function bodyPadding() {
 header__burger.addEventListener('click', () => {
 	header__container.classList.toggle('active');
 	burger__menu.classList.toggle('active');
+	header.classList.toggle('active');
 	fuckCalc();
 	bodyPadding();
 });
