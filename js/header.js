@@ -24,7 +24,12 @@ function whatPhone() {
 
 function fuckCalc() {
 	let paddingContainer = window.getComputedStyle(container, null).padding;
+	let paddingBody = window.getComputedStyle(document.body, null).padding;
+	paddingBody = parseFloat(paddingBody.slice(4, 6));
 	paddingContainer = parseFloat(paddingContainer.slice(4, 6)*2);
+	if (paddingBody !== NaN) {
+		paddingContainer += paddingBody;
+	}
 	let widthContainer = container.offsetWidth - header__burger.offsetWidth - paddingContainer;
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
@@ -49,8 +54,8 @@ header__burger.addEventListener('click', () => {
 	header__container.classList.toggle('active');
 	burger__menu.classList.toggle('active');
 	header.classList.toggle('active');
-	fuckCalc();
 	bodyPadding();
+	fuckCalc();
 });
 
 window.addEventListener('resize', () => {
