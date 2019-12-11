@@ -11,6 +11,10 @@ document.addEventListener('scroll', () => {
 	scrollPrev = scrolled;
 });
 
+function whatPhone() {
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 let header__burger = document.querySelector('.header__burger');
 let burger__menu = document.querySelector('.burger__menu');
 let header__container = document.querySelector('.header__container');
@@ -23,8 +27,11 @@ function fuckCalc() {
 	let widthContainer = container.offsetWidth - header__burger.offsetWidth - paddingContainer;
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
-		if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+
+		if (whatPhone()) {
+			console.log(1);
 		} else {
+			console.log(2);
 		    document.body.style.overflow = 'hidden';
 			document.body.style.paddingRight = '17px';
 		}
