@@ -59,8 +59,8 @@ HEADER
 	left: 0;
 	border-bottom: 1px solid #cbd5e0;
 	width: 100%;
-	z-index: 1;
-	background-color: white;
+	z-index: 2;
+	border-bottom: 0;
 	padding: 10px 0;
 	transition: transform .3s ease-in-out;
 }
@@ -100,7 +100,6 @@ HEADER__BURGER
 ****************/
 
 .header__burger {
-	z-index: 2;
 	position: relative;
 	background-color: black;
 	border-radius: 2px;
