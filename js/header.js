@@ -26,13 +26,9 @@ function fuckCalc() {
 	paddingContainer = parseFloat(paddingContainer.slice(4, 6)*2);
 	let widthContainer = container.offsetWidth - header__burger.offsetWidth - paddingContainer;
 	if (header__container.classList.contains('active')) {
+		document.body.style.overflow = 'hidden';
 		header__burger.style.marginLeft = widthContainer + 'px';
-
-		if (whatPhone()) {
-			console.log(1);
-		} else {
-			console.log(2);
-		    document.body.style.overflow = 'hidden';
+		if (!whatPhone()) {
 			document.body.style.paddingRight = '17px';
 		}
 	} else {
