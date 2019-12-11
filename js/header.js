@@ -11,36 +11,44 @@ document.addEventListener('scroll', () => {
 	scrollPrev = scrolled;
 });
 
-function whatPhone() {
-	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
 let header__burger = document.querySelector('.header__burger');
 let burger__menu = document.querySelector('.burger__menu');
 let header__container = document.querySelector('.header__container');
 let container = document.querySelector('.container');
 let header__logo = document.querySelector('.header__logo');
 
+function whatPhone() {
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 function fuckCalc() {
 	let paddingContainer = window.getComputedStyle(container, null).padding;
 	paddingContainer = parseFloat(paddingContainer.slice(4, 6)*2);
 	let widthContainer = container.offsetWidth - header__burger.offsetWidth - paddingContainer;
 	if (header__container.classList.contains('active')) {
-		document.body.style.overflow = 'hidden';
 		header__burger.style.marginLeft = widthContainer + 'px';
-		if (!whatPhone()) {
-			document.body.style.paddingRight = '17px';
-		}
 	} else {
 		header__burger.style.marginLeft = '0';
+	}
+}
+
+function bodyPadding() {
+	if (header__container.classList.contains('active')) {
+		if (!whatPhone()) {
+			document.body.style.paddingRight = '17px';
+			document.body.style.overflow = 'hidden';
+		}
+	} else {
+		document.body.style.paddingRight = '0';
 		document.body.style.overflow = 'auto';
-		document.body.style.paddingRight = '0px';
 	}
 }
 
 header__burger.addEventListener('click', () => {
 	header__container.classList.toggle('active');
+	burger__menu.classList.toggle('active');
 	fuckCalc();
+	bodyPadding();
 });
 
 window.addEventListener('resize', () => {

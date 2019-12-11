@@ -100,6 +100,7 @@ HEADER__BURGER
 ****************/
 
 .header__burger {
+	z-index: 2;
 	background-color: black;
 	border-radius: 2px;
 	display: -webkit-flex;
@@ -155,9 +156,10 @@ HEADER__BURGER
 	left: 0;
 	transform: translateX(-100%);
 	transition: transform .7s ease-in-out;
+	z-index: 1;
 }
 
-.header__container.active .burger__menu {
+.burger__menu.active {
 	transform: translateX(0%);
 }
 
