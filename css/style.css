@@ -114,15 +114,13 @@ HEADER__BURGER
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 10px 24.5px;
+	padding: 10px 22.5px;
 	cursor: pointer;
 	overflow: hidden;
 	max-width: 45px;
 	min-height: 36px;
 	transform: translateZ(0);
-	transition: margin-left .7s ease-in-out,
-				left .7s ease-in-out,
-				opacity .7s step-end;
+	transition: margin-left .7s ease-in-out;
 }
 
 .line__burger {
@@ -153,7 +151,7 @@ HEADER__BURGER
 
 .burger__menu {
 	width: 100%;
-	min-height: 150vh;
+	min-height: 100%;
 	background-color: rgba(97, 93, 93, 0.95);
 	position: fixed;
 	top: 0;
@@ -166,8 +164,6 @@ HEADER__BURGER
 .burger__menu.active {
 	transform: translateX(0%);
 }
-
-
 
 /*************** 
 
