@@ -37,7 +37,9 @@ function fuckCalc() {
 		header__burger.style.marginLeft = widthContainer + 'px';
 	} else {
 		header__burger.style.marginLeft = '0';
-		document.body.style.paddingRight = '17px';
+		if (!whatPhone()) {
+			document.body.style.paddingRight = '17px';
+		}
 		document.body.style.overflow = 'hidden';
 		function showMessage() {
 			document.body.style.paddingRight = '0';
@@ -52,8 +54,8 @@ function bodyPadding() {
 	if (header__container.classList.contains('active')) {
 		if (!whatPhone()) {
 			document.body.style.paddingRight = '17px';
-			document.body.style.overflow = 'hidden';
 		}
+		document.body.style.overflow = 'hidden';
 	} else {
 		document.body.style.paddingRight = '0';
 		document.body.style.overflow = 'auto';
