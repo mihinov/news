@@ -32,13 +32,15 @@ function fuckCalc() {
 	let widthContainer = posts__intro.offsetWidth - header__burger.offsetWidth;
 	if (document.body.offsetWidth >= 1300) {
 		paddingContainer = parseFloat(paddingContainer/2);
-		widthContainer = widthContainer - paddingContainer;
+		widthContainer = parseFloat(widthContainer - paddingContainer);
 	}
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
 	} else {
 		if (!whatPhone()) {
-			document.body.style.paddingRight = '17px';
+			if (event.type === 'click') {
+				document.body.style.paddingRight = '17px';
+			}
 		}
 		if (event.type === 'click') {
 			document.body.style.overflow = 'hidden';

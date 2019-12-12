@@ -87,7 +87,7 @@ HEADER
 	position: relative;
 	overflow: hidden;
 	max-width: 100%;
-	transition: .7s max-width ease-in-out;
+	transition: .5s max-width ease-in-out;
 }
 
 .header__container.active .header__logo {
@@ -148,6 +148,7 @@ HEADER__BURGER
 }
 
 .burger__menu {
+	overflow: auto;
 	width: 100%;
 	min-height: 150vh;
 	background-color: rgba(97, 93, 93, 0.95);
