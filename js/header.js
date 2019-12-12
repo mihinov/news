@@ -71,6 +71,8 @@ function headerBurgerClick() {
 
 header__burger.addEventListener('click', headerBurgerClick);
 
-window.addEventListener('resize', function () {
+function headerBurgerResize() {
 	fuckCalc();
-});
+}
+
+window.addEventListener('resize', headerBurgerResize);
