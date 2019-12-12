@@ -60,7 +60,7 @@ HEADER
 	z-index: 3;
 	background-color: white;
 	border-bottom: 1px solid #cbd5e0;
-	width: 150vh;
+	width: 100%;
 	padding: 10px 0;
 	transition: background-color .7s step-end,
 				border-bottom .7s step-end,
@@ -148,7 +148,7 @@ HEADER__BURGER
 
 .burger__menu {
 	width: 100%;
-	min-height: 100%;
+	min-height: 150vh;
 	background-color: rgba(97, 93, 93, 0.95);
 	position: fixed;
 	top: 0;
