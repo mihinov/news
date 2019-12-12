@@ -36,11 +36,13 @@ function fuckCalc() {
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
 	} else {
-		header__burger.style.marginLeft = '0';
 		if (!whatPhone()) {
 			document.body.style.paddingRight = '17px';
 		}
-		document.body.style.overflow = 'hidden';
+		if (event.type === 'click') {
+			document.body.style.overflow = 'hidden';
+			header__burger.style.marginLeft = '0';
+		}
 		function showMessage() {
 			document.body.style.paddingRight = '0';
 			document.body.style.overflow = 'auto';
