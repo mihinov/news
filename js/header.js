@@ -62,13 +62,15 @@ function bodyPadding() {
 	}
 }
 
-header__burger.addEventListener('click', () => {
+function headerBurgerClick() {
 	header__container.classList.toggle('active');
 	burger__menu.classList.toggle('active');
 	bodyPadding();
 	fuckCalc();
-});
+}
 
-window.addEventListener('resize', () => {
+header__burger.addEventListener('click', headerBurgerClick);
+
+window.addEventListener('resize', function () {
 	fuckCalc();
 });
