@@ -18,7 +18,8 @@ let posts__intro = document.querySelector('.posts__intro');
 let header__logo = document.querySelector('.header__logo');
 
 function whatPhone() {
-	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+	console.log(navigator.userAgent);
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Mozilla|Opera Mini/i.test(navigator.userAgent);
 }
 
 function fuckCalc() {
