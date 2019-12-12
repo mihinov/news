@@ -18,8 +18,7 @@ let posts__intro = document.querySelector('.posts__intro');
 let header__logo = document.querySelector('.header__logo');
 
 function whatPhone() {
-	console.log(navigator.userAgent);
-	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Mozilla|Opera Mini/i.test(navigator.userAgent);
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile Safari|PlayBook|KFAPWI/i.test(navigator.userAgent);
 }
 
 function fuckCalc() {
@@ -28,11 +27,12 @@ function fuckCalc() {
 	paddingBody = parseFloat(paddingBody.slice(4, 6));
 	paddingContainer = parseFloat(paddingContainer.slice(4, 6)*2);
 	if (paddingBody !== NaN) {
-		paddingContainer += paddingBody;
+		paddingContainer = parseFloat(paddingContainer + paddingBody);
 	}
 	let widthContainer = posts__intro.offsetWidth - header__burger.offsetWidth;
 	if (document.body.offsetWidth >= 1300) {
-		widthContainer -= paddingContainer/2;
+		paddingContainer = parseFloat(paddingContainer/2);
+		widthContainer = widthContainer - paddingContainer;
 	}
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
