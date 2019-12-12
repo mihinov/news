@@ -37,10 +37,14 @@ function fuckCalc() {
 		header__burger.style.marginLeft = widthContainer + 'px';
 	} else {
 		header__burger.style.marginLeft = '0';
+		document.body.style.paddingRight = '17px';
+		document.body.style.overflow = 'hidden';
 		function showMessage() {
-			console.log(1);
+			document.body.style.paddingRight = '0';
+			document.body.style.overflow = 'auto';
+			header__burger.removeEventListener("transitionend", showMessage);
 		}
-		header__burger.addEventListener("transitionend", showMessage());
+		header__burger.addEventListener("transitionend", showMessage);
 	}
 }
 

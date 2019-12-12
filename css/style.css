@@ -128,8 +128,7 @@ HEADER__BURGER
 	width: 20px;
 	height: 2px;
 	background-color: white;
-	transition: transform .5s ease-in-out,
-				background-color .5s ease-in-out;
+	transition: transform .7s ease-in-out;
 }
 
 .line__burger:first-child {
