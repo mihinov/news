@@ -60,7 +60,7 @@ HEADER
 	z-index: 3;
 	background-color: white;
 	border-bottom: 1px solid #cbd5e0;
-	width: 100%;
+	width: 150vh;
 	padding: 10px 0;
 	transition: background-color .7s step-end,
 				border-bottom .7s step-end,
@@ -78,7 +78,6 @@ HEADER
 	display: -o-flex;
 	display: flex;
 	justify-content: flex-start;
-	transition: margin-left 1s ease-in-out;
 }
 
 .header__logo {
