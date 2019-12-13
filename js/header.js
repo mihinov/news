@@ -7,10 +7,6 @@ let header__container = document.querySelector('.header__container');
 let posts__intro = document.querySelector('.posts__intro');
 let header__logo = document.querySelector('.header__logo');
 
-if (whatPhone()) {
-	burger__menu.style.backgroundColor = 'rgba(97, 93, 93, 1)';
-}
-
 function whatPhone() {
 	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile Safari|PlayBook|KFAPWI/i.test(navigator.userAgent);
 }
