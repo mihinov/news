@@ -36,13 +36,14 @@ function fuckCalc() {
 	}
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
+		if (whatPhone() && event.type === 'resize') {
+			document.body.style.overflow = 'hidden';
+		}
 	} else {
-		if (!whatPhone()) {
-			if (event.type === 'click') {
+		if (event.type === 'click') {
+			if (!whatPhone()) {
 				document.body.style.paddingRight = '17px';
 			}
-		}
-		if (event.type === 'click') {
 			document.body.style.overflow = 'hidden';
 			header__burger.style.marginLeft = '0';
 		}
@@ -76,10 +77,8 @@ header__burger.addEventListener('click', () => {
 });
 
 window.addEventListener('resize', () => {
-	fuckCalc();
-	if (header__container.classList.contains('active')) {
-		if (whatPhone()) {
-			document.body.style.overflow = 'hidden';
-		}
+	if (!header__container.classList.contains('active')) {
+		return false;
 	}
+	fuckCalc();
 });
