@@ -36,14 +36,19 @@ function fuckCalc() {
 	}
 	if (header__container.classList.contains('active')) {
 		header__burger.style.marginLeft = widthContainer + 'px';
-		if (whatPhone() && event.type === 'resize') {
-			document.body.style.overflow = 'hidden';
+		if (whatPhone()) {
+			if (event.type === 'resize') {
+				document.body.style.overflow = 'hidden';
+			}
+			burger__menu.style.backgroundColor = 'rgba(97, 93, 93, 1)';
 		}
 	} else {
 		if (event.type === 'click') {
 			if (!whatPhone()) {
 				document.body.style.paddingRight = '17px';
 				burger__menu.style.paddingRight = '17px';
+			} else if (whatPhone()) {
+				burger__menu.style.backgroundColor = 'rgba(97, 93, 93, 0.95)';
 			}
 			document.body.style.overflow = 'hidden';
 			header__burger.style.marginLeft = '0';
