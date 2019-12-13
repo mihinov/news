@@ -2,6 +2,9 @@ let header = document.querySelector('.header');
 let scrollPrev = 0;
 
 document.addEventListener('scroll', () => {
+	if (header__container.contains('active')) {
+		return false;
+	}
 	let scrolled = window.pageYOffset;
 	if (scrolled > 100 && scrolled > scrollPrev) {
 		header.classList.add('off');
