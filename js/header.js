@@ -82,7 +82,7 @@ window.addEventListener('resize', () => {
 	fuckCalc();
 });
 
-document.addEventListener('scroll', () => {
+window.addEventListener('scroll', () => {
 	if (header__container.classList.contains('active')) {
 		return false;
 	}
