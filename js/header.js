@@ -1,19 +1,6 @@
 let header = document.querySelector('.header');
 let scrollPrev = 0;
 
-document.addEventListener('scroll', () => {
-	if (header__container.contains('active')) {
-		return false;
-	}
-	let scrolled = window.pageYOffset;
-	if (scrolled > 100 && scrolled > scrollPrev) {
-		header.classList.add('off');
-	} else {
-		header.classList.remove('off');
-	}
-	scrollPrev = scrolled;
-});
-
 let header__burger = document.querySelector('.header__burger');
 let burger__menu = document.querySelector('.burger__menu');
 let header__container = document.querySelector('.header__container');
@@ -21,7 +8,6 @@ let posts__intro = document.querySelector('.posts__intro');
 let header__logo = document.querySelector('.header__logo');
 
 if (whatPhone()) {
-	console.log(1);
 	burger__menu.style.backgroundColor = 'rgba(97, 93, 93, 1)';
 }
 
@@ -94,4 +80,17 @@ window.addEventListener('resize', () => {
 		return false;
 	}
 	fuckCalc();
+});
+
+document.addEventListener('scroll', () => {
+	if (header__container.classList.contains('active')) {
+		return false;
+	}
+	let scrolled = window.pageYOffset;
+	if (scrolled > 100 && scrolled > scrollPrev) {
+		header.classList.add('off');
+	} else {
+		header.classList.remove('off');
+	}
+	scrollPrev = scrolled;
 });
