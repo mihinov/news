@@ -148,16 +148,22 @@ HEADER__BURGER
 }
 
 .burger__menu {
-	overflow: auto;
+	overflow-y: auto;
 	width: 100%;
-	min-height: 150vh;
 	background-color: rgba(97, 93, 93, 0.95);
 	position: fixed;
 	top: 0;
 	left: 0;
+	right: 0;
+	bottom: 0;
 	transform: translateX(-100%);
 	transition: transform .7s ease-in-out;
 	z-index: 1;
+}
+
+.burger__menu .container {
+	padding: 10px 10px 60px 10px;
+	height: auto;
 }
 
 .burger__menu.active {
@@ -853,6 +859,26 @@ FOOTER
 .footer__icons .vk:hover path {
 	fill: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
