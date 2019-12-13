@@ -43,11 +43,14 @@ function fuckCalc() {
 		if (event.type === 'click') {
 			if (!whatPhone()) {
 				document.body.style.paddingRight = '17px';
+				burger__menu.style.paddingRight = '17px';
 			}
 			document.body.style.overflow = 'hidden';
 			header__burger.style.marginLeft = '0';
+			burger__menu.style.paddingRight = '0';
 		}
 		function showMessage() {
+			burger__menu.style.paddingRight = '0';
 			document.body.style.paddingRight = '0';
 			document.body.style.overflow = 'auto';
 			header__burger.removeEventListener("transitionend", showMessage);
@@ -61,9 +64,11 @@ function bodyPadding() {
 	if (header__container.classList.contains('active'))  {
 		if (!whatPhone()) {
 			document.body.style.paddingRight = '17px';
+			burger__menu.style.paddingRight = '17px';
 		}
 		document.body.style.overflow = 'hidden';
 	} else {
+		burger__menu.style.paddingRight = '0';
 		document.body.style.paddingRight = '0';
 		document.body.style.overflow = 'auto';
 	}
