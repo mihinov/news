@@ -28,7 +28,7 @@ function fuckCalc() {
 			document.body.style.overflow = 'hidden';
 		}
 	} else {
-		if (event.type === 'click' || event.type === 'touchmove') {
+		if (event.type !== 'resize') {
 			if (!whatPhone()) {
 				document.body.style.paddingRight = '17px';
 				burger__menu.style.paddingRight = '17px';
