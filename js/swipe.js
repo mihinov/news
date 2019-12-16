@@ -10,17 +10,18 @@ window.addEventListener('touchmove', () => {
 	}
 	if (header__container.classList.contains('active')) {
 
-		if (x < event.touches[0].clientX - 40) {
+		if (Math.abs(x) - Math.abs(event.touches[0].clientX) > 40) {
 			startClickHeaderBurger();
 			return;
 		}
 
 	} else {
 
-		if (Math.abs(x) - Math.abs(event.touches[0].clientX) > 40) {
+		if (x < event.touches[0].clientX - 40) {
 			startClickHeaderBurger();
 			return;
 		}
+
 	}
 
 });
