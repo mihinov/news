@@ -58,9 +58,7 @@ HEADER
 	border-bottom: 1px solid #cbd5e0;
 	width: 100%;
 	padding: 10px 0;
-	transition: background-color .7s step-end,
-				border-bottom .7s step-end,
-				transform .3s ease-in-out;
+	transition: transform .3s ease-in-out;
 }
 
 .header.off {

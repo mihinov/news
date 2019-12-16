@@ -1,6 +1,4 @@
 let header = document.querySelector('.header');
-let scrollPrev = 0;
-
 let header__burger = document.querySelector('.header__burger');
 let burger__menu = document.querySelector('.burger__menu');
 let header__container = document.querySelector('.header__container');
@@ -30,7 +28,7 @@ function fuckCalc() {
 			document.body.style.overflow = 'hidden';
 		}
 	} else {
-		if (event.type === 'click') {
+		if (event.type === 'click' || event.type === 'touchmove') {
 			if (!whatPhone()) {
 				document.body.style.paddingRight = '17px';
 				burger__menu.style.paddingRight = '17px';
@@ -64,11 +62,15 @@ function bodyPadding() {
 	}
 }
 
-header__burger.addEventListener('click', () => {
+function startClickHeaderBurger() {
 	header__container.classList.toggle('active');
 	burger__menu.classList.toggle('active');
 	bodyPadding();
 	fuckCalc();
+}
+
+header__burger.addEventListener('click', () => {
+	startClickHeaderBurger();
 });
 
 window.addEventListener('resize', () => {
@@ -78,11 +80,15 @@ window.addEventListener('resize', () => {
 	fuckCalc();
 });
 
+let scrollPrev = 0;
+let headerHeight = header.offsetHeight;
+let scrolled
+
 window.addEventListener('scroll', () => {
 	if (header__container.classList.contains('active')) {
 		return false;
 	}
-	let scrolled = window.pageYOffset;
+	scrolled = window.pageYOffset;
 	if (scrolled > 100 && scrolled > scrollPrev) {
 		header.classList.add('off');
 	} else {
