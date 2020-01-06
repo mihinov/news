@@ -20,6 +20,15 @@ body {
 	margin: 0;
 	font-size: 16px;
 	font-family: 'Open Sans', sans-serif;
+ 	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	min-height: 100vh;
+	background: linear-gradient(rgba(255,255,255, 0.7), rgba(255,255,255, 0.7)),url('https://picsum.photos/2000/1000') no-repeat center fixed;
 }
 
 h1, h2, h3, h4, h5, h6, ul, p {
