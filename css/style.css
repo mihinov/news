@@ -928,7 +928,7 @@ FOOTER
 
 	.title__comments, .categories__title {
 		color: black;	
-		background-color: white;
+		background-color: transparent;
 		font-weight: bold;
 		padding: 0;
 		text-align: left;
